@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Image</title>
+    <style>
+        #myImage {
+            width: 300px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Toggle Image Visibility</h2>
+
+    <!-- Image Element -->
+    <img id="myImage" src="https://via.placeholder.com/300" alt="Sample Image">
+
+    <!-- Toggle Button -->
+    <button onclick="toggleImage()">Show/Hide Image</button>
+
+    <script>
+        // Function to toggle image visibility
+        function toggleImage() {
+            var img = document.getElementById("myImage");
+            if (img.style.display === "none") {
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
