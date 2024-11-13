@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text Styling</title>
+    <style>
+        #message {
+            background-color: red;
+            color: blue;
+            font-size: 10px;
+            font-family: "Times New Roman", Times, serif;
+            padding: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Change Text Styling Example</h2>
+
+    <!-- Text message with initial styling -->
+    <div id="message">This is a sample text message.</div>
+
+    <!-- Button to change text styling -->
+    <br><br>
+    <button onclick="changeTextStyle()">Change Style</button>
+
+    <script>
+        // Function to change the text style
+        function changeTextStyle() {
+            var message = document.getElementById("message");
+            message.style.backgroundColor = "green";
+            message.style.color = "yellow";
+            message.style.fontSize = "12px";
+            message.style.fontWeight = "bold";
+        }
+    </script>
+
+</body>
+</html>
