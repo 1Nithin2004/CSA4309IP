@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .menu a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #0073e6;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu a:hover {
+            background-color: #005bb5;
+        }
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #333;
+            padding: 20px;
+            background-color: #fff;
+            width: 300px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup h2 {
+            margin-top: 0;
+        }
+        .popup label, .popup input {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+        }
+        .close-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>Welcome to the Library Management System</header>
+
+    <!-- Menu -->
+    <div class="menu">
+        <a href="#" onclick="showLoginMenu()">Login</a>
+        <a href="#" onclick="showRegistration()">Registration</a>
+    </div>
+
+    <!-- Login Submenu -->
+    <div id="loginMenu" class="popup">
+        <h2>Login</h2>
+        <button onclick="showLogin('user')">User Login</button>
+        <button onclick="showLogin('admin')">Admin Login</button>
+        <button class="close-btn" onclick="closePopup('loginMenu')">Close</button>
+    </div>
+
+    <!-- User/Admin Login Popup -->
+    <div id="loginPopup" class="popup">
+        <h2 id="loginTitle">Login</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+        <button class="close-btn" onclick="closePopup('loginPopup')">Close</button>
+    </div>
+
+    <!-- Registration Popup -->
+    <div id="registrationPopup" class="popup">
+        <h2>Register</h2>
+        <form>
+            <label for="regUsername">Username:</label>
+            <input type="text" id="regUsername" name="regUsername" required>
+
+            <label for="regEmail">Email:</label>
+            <input type="email" id="regEmail" name="regEmail" required>
+
+            <label for="regPassword">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" required>
+
+            <label for="regPhone">Phone:</label>
+            <input type="tel" id="regPhone" name="regPhone" required>
+
+            <input type="submit" value="Register">
+        </form>
+        <button class="close-btn" onclick="closePopup('registrationPopup')">Close</button>
+    </div>
+
+    <script>
+        // Show the Login Menu
+        function showLoginMenu() {
+            document.getElementById('loginMenu').style.display = 'block';
+        }
+
+        // Show Registration Form
+        function showRegistration() {
+            document.getElementById('registrationPopup').style.display = 'block';
+        }
+
+        // Show User/Admin Login Form
+        function showLogin(type) {
+            document.getElementById('loginTitle').textContent = type === 'user' ? 'User Login' : 'Admin Login';
+            document.getElementById('loginPopup').style.display = 'block';
+            closePopup('loginMenu');
+        }
+
+        // Close any popup
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
